@@ -46,6 +46,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                  KC_LCTRL,KC_LCTRL,KC_LALT, KC_LGUI, KC_ENT,      KC_SPC,  KC_RAISE, KC_RALT, KC_RGUI, KC_RCTRL
 ),
 
+//Left
+//MT(MOD_LCTL, KC_A), MT(MOD_LALT, KC_S), MT(MOD_LGUI, KC_D), MT(MOD_LSFT, KC_F),
+
+//Right
+//MT(MOD_LSFT, KC_J), MT(MOD_LGUI, KC_K), MT(MOD_LALT, KC_L), MT(MOD_LCTL, KC_SCLN),
 
 /* LOWER
  * ,-----------------------------------------.                    ,-----------------------------------------.
