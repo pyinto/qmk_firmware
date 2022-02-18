@@ -9,6 +9,8 @@
 // Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
 #define TAPPING_FORCE_HOLD
 
+
+#define COMBO_COUNT 2
 /* The way how "handedness" is decided (which half is which),
 see https://docs.qmk.fm/#/feature_split_keyboard?id=setting-handedness
 for more options.

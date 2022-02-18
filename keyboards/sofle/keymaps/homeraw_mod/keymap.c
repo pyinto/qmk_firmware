@@ -126,6 +126,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ),
  */
 
+//const uint16_t PROGMEM test_combo1[] = {KC_J, KC_K, COMBO_END};
+//const uint16_t PROGMEM test_combo2[] = {KC_C, KC_V, COMBO_END};
+//combo_t key_combos[COMBO_COUNT] = {
+//    COMBO(test_combo1, KC_ESC),
+//    COMBO(test_combo2, KC_ESC),
+//};
+
 #ifdef OLED_ENABLE
 
 static void render_logo(void) {
