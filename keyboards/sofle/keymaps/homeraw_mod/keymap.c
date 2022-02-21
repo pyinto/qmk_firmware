@@ -32,9 +32,11 @@ enum custom_keycodes {
 
 // JK to esc combo
 //const uint16_t PROGMEM test_combo2[] = {MT(MOD_RSFT, KC_J), MT(MOD_RGUI, KC_K), COMBO_END};
-//combo_t key_combos[COMBO_COUNT] = {
+const uint16_t PROGMEM combo_ui_esc[] = {KC_U, KC_I, COMBO_END};
+combo_t key_combos[COMBO_COUNT] = {
 //    COMBO(test_combo2, KC_ESC),
-//};
+    COMBO(combo_ui_esc, KC_ESC),
+};
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
