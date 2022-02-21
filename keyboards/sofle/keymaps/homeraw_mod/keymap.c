@@ -201,8 +201,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 #ifdef ENCODER_ENABLE
 
-bool is_alt_tab_active = false;
-uint16_t alt_tab_timer = 1;
+//bool is_alt_tab_active = false;
+//uint16_t alt_tab_timer = 1;
+static int8_t ticks = 0;
 
 bool encoder_update_user(uint8_t index, bool clockwise) {
     if (index == 0) {
@@ -212,30 +213,55 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
             tap_code(KC_VOLU);
         }
     } else if (index == 1) {
-        if (clockwise) {
-          if (!is_alt_tab_active) {
-            is_alt_tab_active = true;
-            register_code(KC_LGUI);
-          }
-          alt_tab_timer = timer_read();
-          tap_code16(S(KC_LCBR));
-        } else {
-              if (!is_alt_tab_active) {
-                is_alt_tab_active = true;
-                register_code(KC_LGUI);
-              }
-              alt_tab_timer = timer_read();
-              tap_code16(S(KC_RCBR));
+        if (clockwise) { ++ticks; } else { --ticks; }
+        if (abs(ticks) >= 2) {
+            tap_code16(clockwise ?  G(S(KC_LCBR)): G(S(KC_RCBR)));
+            ticks = 0;
         }
     }
     return true;
 }
-void matrix_scan_user(void) {
-  if (is_alt_tab_active) {
-    if (timer_elapsed(alt_tab_timer) > 1250) {
-      unregister_code(KC_LALT);
-      is_alt_tab_active = false;
-    }
-  }
-}
+//    } else if (index == 1) {
+//        if (clockwise) {
+//          ++ticks;
+//          if (!is_alt_tab_active) {
+//            is_alt_tab_active = true;
+//            register_code(KC_LGUI);
+//          }
+//          alt_tab_timer = timer_read();
+//          if (abs(ticks) >= 2) {
+//            tap_code16(S(KC_LCBR));
+//            ticks = 0;                                   // Reset counter.
+//          }
+//        } else {
+//            --ticks;
+//            if (!is_alt_tab_active) {
+//                is_alt_tab_active = true;
+//                register_code(KC_LGUI);
+//            }
+//            if (abs(ticks) >= 2) {
+//                tap_code16(S(KC_RCBR));
+//                ticks = 0;
+//            }
+//            alt_tab_timer = timer_read();
+//
+//        }
+//    }
+
+//void matrix_scan_user(void) {
+//  if (is_alt_tab_active) {
+//    if (timer_elapsed(alt_tab_timer) > 1250) {
+//      unregister_code(KC_LALT);
+//      is_alt_tab_active = false;
+//    }
+//  }
+//}
 #endif
+
+//
+//static int8_t ticks = 0;
+//if (clockwise) { ++ticks; } else { --ticks; }  // Count up or down.
+//if (abs(ticks) >= 5) {                         // Take action!
+//  tap_code(clockwise ? KC_MNXT : KC_MPRV);
+//  ticks = 0;                                   // Reset counter.
+//}
