@@ -201,6 +201,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 #ifdef ENCODER_ENABLE
 
+bool is_alt_tab_active = false;
+uint16_t alt_tab_timer = 1;
+
 bool encoder_update_user(uint8_t index, bool clockwise) {
     if (index == 0) {
         if (clockwise) {
@@ -210,12 +213,29 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
         }
     } else if (index == 1) {
         if (clockwise) {
-            tap_code(KC_F1);
+          if (!is_alt_tab_active) {
+            is_alt_tab_active = true;
+            register_code(KC_LGUI);
+          }
+          alt_tab_timer = timer_read();
+          tap_code16(S(KC_LCBR));
         } else {
-            tap_code(KC_F2);
+              if (!is_alt_tab_active) {
+                is_alt_tab_active = true;
+                register_code(KC_LGUI);
+              }
+              alt_tab_timer = timer_read();
+              tap_code16(S(KC_RCBR));
         }
     }
     return true;
 }
-
+void matrix_scan_user(void) {
+  if (is_alt_tab_active) {
+    if (timer_elapsed(alt_tab_timer) > 1250) {
+      unregister_code(KC_LALT);
+      is_alt_tab_active = false;
+    }
+  }
+}
 #endif
