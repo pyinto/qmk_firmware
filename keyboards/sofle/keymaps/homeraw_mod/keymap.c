@@ -211,16 +211,18 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
             ticks = 0;
         }
     } else if (index == 1) {
-        if (get_mods() & MOD_BIT(KC_LGUI)) {
+        if (layer_state_is(_LOWER)) {
+            if (clockwise) { ++ticks; } else { --ticks; }
+            if (abs(ticks) >= 2) {
+//                tap_code16(clockwise ?  G(KC_1): G(KC_2));
+                tap_code16(clockwise ?  G(KC_LCBR): G(KC_RCBR));
+                ticks = 0;
+            }
+        } else if (layer_state_is(_QWERTY)) {
             if (clockwise) { ++ticks; } else { --ticks; }
             if (abs(ticks) >= 2) {
                 tap_code16(clockwise ?  G(S(KC_LCBR)): G(S(KC_RCBR)));
                 ticks = 0;
-            }
-        } else {
-            if (clockwise) { ++ticks; } else { --ticks; }
-            if (abs(ticks) >= 2) {
-                tap_code16(clockwise ?  G(KC_LCBR): G(KC_RCBR));
             }
         }
     }
