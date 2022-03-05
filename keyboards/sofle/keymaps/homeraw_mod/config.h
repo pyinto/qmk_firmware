@@ -2,8 +2,7 @@
 #undef TAPPING_TERM
 
 // Configure the global tapping term (default: 200ms)
-#define TAPPING_TERM 320
-
+#define TAPPING_TERM 200
 // Prevent normal rollover on alphas from accidentally triggering mods.
 #define IGNORE_MOD_TAP_INTERRUPT
 
