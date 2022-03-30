@@ -220,10 +220,18 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
             }
         }
     } else if (index == 1) {
-        if (clockwise) { ++ticks; } else { --ticks; }
-        if (abs(ticks) >= 2) {
-            tap_code16(clockwise ? KC_VOLD: KC_VOLU);
-            ticks = 0;
+        if (IS_LAYER_ON(_LOWER)) {
+            if (clockwise) { ++ticks; } else { --ticks; }
+            if (abs(ticks) >= 2) {
+                tap_code16(clockwise ?  KC_LEFT: KC_RIGHT);
+                ticks = 0;
+            }
+        } else {
+            if (clockwise) { ++ticks; } else { --ticks; }
+            if (abs(ticks) >= 2) {
+                tap_code16(clockwise ? KC_VOLD: KC_VOLU);
+                ticks = 0;
+            }
         }
     }
     return true;
