@@ -209,7 +209,7 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
         if (clockwise) { ++ticks; } else { --ticks; }
         if (abs(ticks) >= 2) {
 //            tap_code16(clockwise ?  KC_F1: KC_F2);
-            tap_code16(clockwise ?  KC_LEFT: KC_RIGHT;
+            tap_code16(clockwise ?  KC_LEFT: KC_RIGHT);
             ticks = 0;
         }
     } else if (index == 1) {
