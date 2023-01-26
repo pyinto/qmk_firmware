@@ -14,3 +14,6 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 DEFAULT_FOLDER = splitkb/aurora/corne/rev1
+
+# Convert from Elite-C to standard RP2040 (Leatric controller)
+CONVERT_TO=promicro_rp2040
