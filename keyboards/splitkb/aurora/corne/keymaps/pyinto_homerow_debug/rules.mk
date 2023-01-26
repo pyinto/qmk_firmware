@@ -21,3 +21,7 @@
 # while we use the regular RGB underglow for testing
 RGB_MATRIX_ENABLE = no
 RGBLIGHT_ENABLE = yes
+
+CONSOLE_ENABLE = no
+EXTRAKEY_ENABLE = yes
+COMBO_ENABLE = yes

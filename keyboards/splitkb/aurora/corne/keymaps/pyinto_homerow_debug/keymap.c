@@ -36,38 +36,3 @@ void keyboard_post_init_user(void) {
   rgblight_mode_noeeprom(RGBLIGHT_MODE_BREATHING + 3); // sets mode to Fast breathing without saving
 }
 #endif
-
-#ifdef ENCODER_ENABLE
-bool encoder_update_user(uint8_t index, bool clockwise) {
-    // 0 is left-half encoder,
-    // 1 is right-half encoder
-    if (index == 0) {
-        tap_code(KC_0);
-    } else if (index == 1) {
-        tap_code(KC_1);
-    }
-
-    if (clockwise) {
-        tap_code16(KC_PLUS);
-    } else {
-        tap_code(KC_MINUS);
-    }
-
-    return false;
-}
-#endif
-
-#ifdef OLED_ENABLE
-bool oled_task_user(void) {
-    // A 128x32 OLED rotated 90 degrees is 5 characters wide and 16 characters tall
-    // This example string should fill that neatly
-    const char *text = PSTR("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789!@#$%^&*()[]{}-=_+?");
-
-    if (is_keyboard_master()) {
-        oled_write_P(text, false);
-    } else {
-        oled_write_P(text, false);
-    }
-    return false;
-}
-#endif
