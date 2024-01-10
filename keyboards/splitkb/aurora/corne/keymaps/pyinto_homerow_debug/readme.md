@@ -22,3 +22,12 @@ Both underglow and per-key RGB should be fading between red and off.
 ## OLEDs
 
 Both the primary and secondary side should be filled with characters.
+
+
+
+## Running
+```
+qmk compile -kb splitkb/aurora/corne -km pyinto_homerow_debug
+qmk compile -kb splitkb/aurora/corne -km pyinto_homerow_debug -e CONVERT_TO=liatris
+
+```
