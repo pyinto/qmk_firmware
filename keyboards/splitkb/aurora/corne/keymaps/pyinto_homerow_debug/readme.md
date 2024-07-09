@@ -25,9 +25,20 @@ Both the primary and secondary side should be filled with characters.
 
 
 
-## Running
+## Building & Flashing
+https://docs.splitkb.com/hc/en-us/articles/6330981035676-Aurora-Build-Guide-20-Flashing-Firmware
+
 ```
-qmk compile -kb splitkb/aurora/corne -km pyinto_homerow_debug
+qmk compile -kb splitkb/aurora/corne/rev1 -km pyinto_homerow_debug
+qmk compile -kb splitkb/aurora/corne/rev1 -km pyinto_homerow_debug -e CONVERT_TO=liatris
+qmk compile -kb splitkb/aurora/corne/rev1 -km x123
+
+// doesn't work:
 qmk compile -kb splitkb/aurora/corne -km pyinto_homerow_debug -e CONVERT_TO=liatris
+[//]: # (qmk flash -c -kb splitkb/aurora/corne -km debug -e CONVERT_TO=liatris)
+
+qmk compile -kb splitkb/aurora/corne -km default -e CONVERT_TO=liatris
+
+
 
 ```
