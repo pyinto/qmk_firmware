@@ -139,10 +139,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *            |      |      |      |      |/       /        \       \|      |      |      |      |
  *            `---------------------------''------'          '------''---------------------------'
  */
+//[_ADJUST] = LAYOUT_split_3x6_3(
+//  QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+//  RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+//  RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+//                    _______, _______, _______,    _______, _______, _______
+//  )
+//};
 [_ADJUST] = LAYOUT_split_3x6_3(
-  QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                     _______, _______, _______,    _______, _______, _______
   )
 };
@@ -209,29 +216,3 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
     return true;
 }
-
-//const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-//    [_DEFAULT] = LAYOUT_split_3x6_3(
-//        KC_A, KC_B, KC_C, KC_D, KC_E, KC_F,                    S(KC_F), S(KC_E), S(KC_D), S(KC_C), S(KC_B), S(KC_A),
-//        KC_G, KC_H, KC_I, KC_J, KC_K, KC_L,                    S(KC_L), S(KC_K), S(KC_J), S(KC_I), S(KC_H), S(KC_G),
-//        KC_M, KC_N, KC_O, KC_P, KC_Q, KC_R,                    S(KC_R), S(KC_Q), S(KC_P), S(KC_O), S(KC_N), S(KC_M),
-//                                KC_S, KC_T, KC_U,     S(KC_U), S(KC_T), S(KC_S)
-//    )
-//};
-
-// TODO: working lights, disabling temporary to debug issues
-//#ifdef RGBLIGHT_ENABLE
-//void keyboard_post_init_user(void) {
-//  rgblight_enable_noeeprom(); // enables RGB, without saving settings
-//  rgblight_sethsv_noeeprom(HSV_RED); // sets the color to red without saving
-//  rgblight_mode_noeeprom(RGBLIGHT_MODE_BREATHING + 3); // sets mode to Fast breathing without saving
-//}
-//#endif
-
-#ifdef RGBLIGHT_ENABLE
-void keyboard_post_init_user(void) {
-  rgblight_enable_noeeprom(); // Enables RGB, without saving settings
-  rgblight_sethsv_noeeprom(HSV_PURPLE);
-  rgblight_mode_noeeprom(RGBLIGHT_MODE_STATIC_LIGHT);
-}
-#endif
