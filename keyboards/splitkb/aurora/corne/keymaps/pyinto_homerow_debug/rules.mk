@@ -4,11 +4,11 @@
 
 # RGB Matrix is enabled at the revision level,
 # while we use the regular RGB underglow for testing
-RGBLIGHT_ENABLE = no
-RGB_MATRIX_ENABLE = no
-# BACKLIGHT_ENABLE = no
+# RGBLIGHT_ENABLE = no
+RGB_MATRIX_ENABLE = yes
+# BACKLIGHT_ENABLE = yes
 
-CONSOLE_ENABLE = yes
+# CONSOLE_ENABLE = yes
 EXTRAKEY_ENABLE = yes
 COMBO_ENABLE = yes
 
