@@ -5,11 +5,11 @@ PIN_COMPATIBLE=promicro
 ENCODER_ENABLE = no
 OLED_ENABLE = no
 BACKLIGHT_ENABLE = no
+RGBLIGHT_ENABLE = no
 
 # RGB Matrix is enabled at the revision level,
 # while we use the regular RGB underglow for testing
 RGB_MATRIX_ENABLE = yes
-RGBLIGHT_ENABLE = yes
 
 
 EXTRAKEY_ENABLE = yes
