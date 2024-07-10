@@ -46,6 +46,11 @@
 
 #define COMBO_COUNT 2
 
+// TODO: trying to solve sleep issue on mac
+// Disables usb suspend check after keyboard startup. Usually the keyboard waits for the host to wake it up before
+//  any tasks are performed. This is useful for split keyboards as one half will not get a wakeup call but must
+//  send commands to the master.
+#define NO_USB_STARTUP_CHECK
 
 /* The way how "handedness" is decided (which half is which),
 see https://docs.qmk.fm/#/feature_split_keyboard?id=setting-handedness
