@@ -14,6 +14,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+/* The way how "handedness" is decided (which half is which),
+see https://docs.qmk.fm/#/feature_split_keyboard?id=setting-handedness
+for more options.
+*/
+
+
 #pragma once
 
 #ifdef RGBLIGHT_ENABLE
@@ -29,22 +35,21 @@
 #endif
 
 
-/* The way how "handedness" is decided (which half is which),
-see https://docs.qmk.fm/#/feature_split_keyboard?id=setting-handedness
-for more options.
-*/
+// Activate caps word by pressing Left Shift + Right Shift
+#define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
 
 
-// Configure the global tapping term (default: 200ms)
-//#define TAPPING_TERM 150
-#undef TAPPING_TERM
-#define TAPPING_TERM 165
-#define QUICK_TAP_TERM 120
+// Maximum time between taps of tap dances
+#define TAPPING_TERM 175
 
-//This makes tap and hold keys (like Layer Tap) work better for fast typists, or for high TAPPING_TERM settings.
+// Max time between taps to prevent hold function and hold auto-repeat
+#define QUICK_TAP_TERM 100
+
+// Perform hold action if pressing a dual-role key, tapping another key and
+// releasing the dual-role key within tapping term
+//  This makes tap and hold keys (like Layer Tap) work better for fast typists, or for high TAPPING_TERM settings.
 #define PERMISSIVE_HOLD
-// todo: should i use this over PERMISSIVE_HOLD?
-//#define HOLD_ON_OTHER_KEY_PRESS
+//#define HOLD_ON_OTHER_KEY_PRESS  // todo: should i use this over PERMISSIVE_HOLD?
 
 
 // TODO: read about it https://docs.qmk.fm/features/combo#combo-term
@@ -59,6 +64,6 @@ for more options.
 
 
 // TODO: DEPRECATED, replaced with QUICK_TAP_TERM...
-//     https://docs.qmk.fm/ChangeLog/20230226#i-m-t-i
+//  https://docs.qmk.fm/ChangeLog/20230226#i-m-t-i
 //#define TAPPING_FORCE_HOLD
 //#define IGNORE_MOD_TAP_INTERRUPT
