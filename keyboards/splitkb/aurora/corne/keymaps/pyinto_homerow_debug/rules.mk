@@ -1,6 +1,7 @@
 CONVERT_TO=liatris
 PIN_COMPATIBLE=promicro
 
+
 # NOTE: These are already enabled by default at the revision level
 ENCODER_ENABLE = no
 OLED_ENABLE = no
@@ -11,6 +12,8 @@ RGBLIGHT_ENABLE = no
 # while we use the regular RGB underglow for testing
 RGB_MATRIX_ENABLE = yes
 
+# https://docs.qmk.fm/features/caps_word
+CAPS_WORD_ENABLE = yes
 
 EXTRAKEY_ENABLE = yes
 COMBO_ENABLE = yes
