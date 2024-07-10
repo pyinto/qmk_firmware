@@ -6,11 +6,10 @@ PIN_COMPATIBLE=promicro
 ENCODER_ENABLE = no
 OLED_ENABLE = no
 BACKLIGHT_ENABLE = no
-RGBLIGHT_ENABLE = no
-
 # RGB Matrix is enabled at the revision level,
 # while we use the regular RGB underglow for testing
-RGB_MATRIX_ENABLE = yes
+RGB_MATRIX_ENABLE = no
+RGBLIGHT_ENABLE = yes
 
 # https://docs.qmk.fm/features/caps_word
 CAPS_WORD_ENABLE = yes
