@@ -1,5 +1,5 @@
 CONVERT_TO=liatris
-
+PIN_COMPATIBLE=promicro
 
 # NOTE: These are already enabled by default at the revision level
 ENCODER_ENABLE = no
