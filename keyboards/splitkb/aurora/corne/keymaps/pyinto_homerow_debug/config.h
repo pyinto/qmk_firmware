@@ -29,6 +29,11 @@
 #endif
 
 
+/* The way how "handedness" is decided (which half is which),
+see https://docs.qmk.fm/#/feature_split_keyboard?id=setting-handedness
+for more options.
+*/
+
 
 #undef TAPPING_TERM
 
@@ -36,16 +41,23 @@
 //#define TAPPING_TERM 150
 #define TAPPING_TERM 165
 
-// Prevent normal rollover on alphas from accidentally triggering mods.
-//#define IGNORE_MOD_TAP_INTERRUPT
+// Enable rapid switch from tap to hold, disables double tap hold auto-repeat. (TODO: DEPRECATED)
+//#define TAPPING_FORCE_HOLD
+// Replacing deprecated param: https://docs.qmk.fm/ChangeLog/20230226#quick-tap-term
+#define QUICK_TAP_TERM 120
 
-// Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
-#define TAPPING_FORCE_HOLD
 
 //This makes tap and hold keys (like Layer Tap) work better for fast typists, or for high TAPPING_TERM settings.
 #define PERMISSIVE_HOLD
+// todo which one should I choose?
+
+//#define HOLD_ON_OTHER_KEY_PRESS
+
 
 #define COMBO_COUNT 2
+
+// Prevent normal rollover on alphas from accidentally triggering mods.
+//#define IGNORE_MOD_TAP_INTERRUPT
 
 // TODO: trying to solve sleep issue on mac
 // Disables usb suspend check after keyboard startup. Usually the keyboard waits for the host to wake it up before
@@ -53,7 +65,4 @@
 //  send commands to the master.
 #define NO_USB_STARTUP_CHECK
 
-/* The way how "handedness" is decided (which half is which),
-see https://docs.qmk.fm/#/feature_split_keyboard?id=setting-handedness
-for more options.
-*/
+
