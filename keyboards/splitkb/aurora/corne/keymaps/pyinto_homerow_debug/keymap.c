@@ -78,9 +78,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
 [_QWERTY] = LAYOUT_split_3x6_3(
-  KC_GRAVE, KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   ,                      KC_Y   , KC_U   , KC_I   , KC_O   , KC_P   , KC_BSPC,
-  KC_BSLS, HOME_A , HOME_S , HOME_D , HOME_F , KC_G   ,                      KC_H   , HOME_J , HOME_K , HOME_L , HOME_SCLN, KC_QUOT,
-  KC_LSFT , KC_Z   , KC_X   , KC_C   , KC_V   , KC_B,                         KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, KC_RSFT,
+  KC_GRAVE, KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   ,                      KC_Y   , KC_U   , KC_I   , KC_O   , KC_P     , KC_BSPC,
+  KC_BSLS , HOME_A , HOME_S , HOME_D , HOME_F , KC_G   ,                      KC_H   , HOME_J , HOME_K , HOME_L , HOME_SCLN, KC_QUOT,
+  KC_LSFT , KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   ,                      KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH  , KC_RSFT,
                     KC_TAB , KC_LOWER, KC_ENT,    KC_SPC , KC_RAISE, KC_BSPC
 ),
 
@@ -133,11 +133,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* ADJUST
  *  .‒‒‒‒‒+‒‒‒‒‒‒+‒‒‒‒‒‒+‒‒‒‒‒‒+‒‒‒‒‒‒+‒‒‒‒‒‒.                     .‒‒‒‒‒+‒‒‒‒‒‒+‒‒‒‒‒‒+‒‒‒‒‒‒+‒‒‒‒‒‒+‒‒‒‒‒.
- * │  🌈  │      │      │      │      │  🔴  │                    │      │  F7  │  F8  │  F9  │      │      │
+ * │  🌈  │      │      │      │      │  🔴  │                    │      │  F7  │  F8  │  F9  │ F10  │ F13  │
  * │‒‒‒‒‒‒+‒‒‒‒‒‒+‒‒‒‒‒‒+‒‒‒‒‒‒+‒‒‒‒‒‒+‒‒‒‒‒‒│                    │‒‒‒‒‒‒+‒‒‒‒‒‒+‒‒‒‒‒‒+‒‒‒‒‒‒+‒‒‒‒‒‒+‒‒‒‒‒‒│
- * │      │  R++ │  R++ │  R++ │  R~> │  R+  │‒‒‒‒‒‒‒.     .‒‒‒‒‒‒│      │  F4  │  F5  │  F6  │ F10  │      │
+ * │      │  R++ │  R++ │  R++ │  R~> │  R+  │‒‒‒‒‒‒‒.     .‒‒‒‒‒‒│      │  F4  │  F5  │  F6  │ F11  │ F14  │
  * │‒‒‒‒‒‒+‒‒‒‒‒‒+‒‒‒‒‒‒+‒‒‒‒‒‒+‒‒‒‒‒‒+‒‒‒‒‒‒│       │    │       │‒‒‒‒‒‒+‒‒‒‒‒‒+‒‒‒‒‒‒+‒‒‒‒‒‒+‒‒‒‒‒‒+‒‒‒‒‒‒│
- * │      │  R++ │  R++ │  R++ │  R<~ │  R+  │‒‒‒‒‒‒‒│    │‒‒‒‒‒‒‒│      │  F1  │  F2  │  F3  │      │      │
+ * │      │  R++ │  R++ │  R++ │  R<~ │  R+  │‒‒‒‒‒‒‒│    │‒‒‒‒‒‒‒│      │  F1  │  F2  │  F3  │ F12  │ F15  │
  * `‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒/       /     \       \‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒'
  *                         │      │//////│ / Enter /       \ Space \ │//////│      │
  *                         │      │//////│/       /         \       \│//////│      │
@@ -154,9 +154,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //};
 
 [_ADJUST] = LAYOUT_split_3x6_3(
-  RGB_TOG, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX , QK_RBT ,                      XXXXXXX, KC_F7  , KC_F8  , KC_F9  , XXXXXXX, XXXXXXX,
-  XXXXXXX, RGB_HUI, RGB_SAI, RGB_VAI, RGB_MOD , RGB_SPI,                      XXXXXXX, KC_F4  , KC_F5  , KC_F6  , KC_F10 , XXXXXXX,
-  XXXXXXX, RGB_HUD, RGB_SAD, RGB_VAD, RGB_RMOD, RGB_SPD,                      XXXXXXX, KC_F1  , KC_F2  , KC_F3  , XXXXXXX, XXXXXXX,
+  RGB_TOG, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX , QK_RBT ,                      XXXXXXX, KC_F7  , KC_F8  , KC_F9  , KC_F10, KC_F13,
+  XXXXXXX, RGB_HUI, RGB_SAI, RGB_VAI, RGB_MOD , RGB_SPI,                      XXXXXXX, KC_F4  , KC_F5  , KC_F6  , KC_F11, KC_F14,
+  XXXXXXX, RGB_HUD, RGB_SAD, RGB_VAD, RGB_RMOD, RGB_SPD,                      XXXXXXX, KC_F1  , KC_F2  , KC_F3  , KC_F12, KC_F15,
                                         _______, _______, _______,    _______, _______, _______
   )
 };
