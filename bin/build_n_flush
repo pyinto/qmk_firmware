@@ -18,7 +18,7 @@ build() {
 
 
 flush() {
-    cp ${BUILD_PATH}/${BUILD_NAME} ./test
+    cp ${BUILD_PATH}/${BUILD_NAME} ${KEYBOARD_MOUNT_PATH}
 }
 
 
@@ -26,7 +26,6 @@ ACTION=$1
 if [ -z $ACTION ]; then
     echo "Building and flushing..."
     build
-    sleep 1
     flush
     echo "Built and flushed!"
 
