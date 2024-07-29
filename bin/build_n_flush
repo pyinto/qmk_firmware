@@ -5,11 +5,12 @@ BUILD_PATH="${PROJECT_PATH}/.build"
 KEYBOARD_MOUNT_PATH="/Volumes/RPI-RP2/"
 
 
-MY_KEYBOARD="splitkb/aurora/corne"
+MY_KEYBOARD="splitkb/aurora/corne/rev1"
 #MY_KEYMAP="pyinto_homerow_debug"
 MY_KEYMAP="homerow_v2"
 
-BUILD_NAME="${MY_KEYMAP//\\//_}_${MY_KEYBOARD//\\//_}.utf2"  # same but '/' replaced with '_'
+BUILD_NAME="${MY_KEYBOARD//\//_}_${MY_KEYMAP//\//_}_liatris.uf2"
+
 
 build() {
     qmk compile -kb ${MY_KEYBOARD} -km ${MY_KEYMAP}
@@ -17,7 +18,7 @@ build() {
 
 
 flush() {
-    cp ${BUILD_PATH}/${BUILD_NAME} ${KEYBOARD_MOUNT_PATH}
+    cp ${BUILD_PATH}/${BUILD_NAME} ./test
 }
 
 
@@ -27,13 +28,16 @@ if [ -z $ACTION ]; then
     build
     sleep 1
     flush
+    echo "Built and flushed!"
 
 elif [ $ACTION = "build" ]; then
     echo "Building..."
     build
+    echo "Built!"
 
 elif [ $ACTION = "flush" ]; then
     echo "Flushing..."
     flush
+    echo "Flushed!"
 
 fi
