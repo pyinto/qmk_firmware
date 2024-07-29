@@ -19,3 +19,5 @@ NO_SUSPEND_POWER_DOWN = yes  # Sleep issue fix
 EXTRAKEY_ENABLE = yes  # Audio control and System control
 
 # CONSOLE_ENABLE = yes  # For debug
+
+#UNICODEMAP_ENABLE = yes

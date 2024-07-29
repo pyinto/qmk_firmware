@@ -35,10 +35,6 @@ enum custom_keycodes {
     KC_LOWER,
     KC_RAISE,
     KC_ADJUST,
-
-    // other
-    MY_COLON,
-
 };
 
 
@@ -77,11 +73,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
 
         // other
-        case MY_COLON:
-            if (record->event.pressed) {
-                SEND_STRING(":");
-            }
-            return false;
+
     }
     return true;
 }
@@ -124,7 +116,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // ⎟---------+---------+---------+---------+---------+---------⎟ ⎟---------+---------+---------+---------+---------+---------⎟
          _______ , KC_LCTL , KC_LALT , KC_LGUI , KC_LSFT ,  KC_GRV ,   KC_LEFT , KC_DOWN ,   KC_UP , KC_RGHT , KC_UNDS , _______ ,
     // ⎟---------+---------+---------+---------+---------+---------⎟ ⎟---------+---------+---------+---------+---------+---------⎟
-         _______ , KC_PIPE , KC_AMPR , MY_COLON, KC_HASH , _______ ,   KC_LABK , KC_LPRN , KC_RPRN , KC_RABK , _______ , _______ ,
+         _______ , KC_PIPE , KC_AMPR , _______ , KC_HASH , _______ ,   KC_LABK , KC_LPRN , KC_RPRN , KC_RABK , _______ , _______ ,
     // ╰---------+---------+---------+---------/---------/---------/ \---------\---------\---------+---------+---------+---------╯
                                        _______ , _______ , _______ ,   _______ , XXXXXXX , _______
     //                              /_________/_________/_________/   \_________\_________\_________\_
