@@ -63,11 +63,13 @@ for more options.
 #define NO_USB_STARTUP_CHECK
 
 
+// Input Modes: https://docs.qmk.fm/features/unicode#input-modes
+ #define UNICODE_SELECTED_MODES UNICODE_MODE_MACOS
+
+
 // TODO: DEPRECATED, replaced with QUICK_TAP_TERM...
 //  https://docs.qmk.fm/ChangeLog/20230226#i-m-t-i
 //#define TAPPING_FORCE_HOLD
 //#define IGNORE_MOD_TAP_INTERRUPT
 
 
-// Input Modes: https://docs.qmk.fm/features/unicode#input-modes
- #define UNICODE_SELECTED_MODES UNICODE_MODE_MACOS
