@@ -21,16 +21,19 @@ flush() {
 }
 
 
-$ACTION=$1
+ACTION=$1
 if [ -z $ACTION ]; then
+    echo "Building and flushing..."
     build
     sleep 1
     flush
 
 elif [ $ACTION = "build" ]; then
+    echo "Building..."
     build
 
 elif [ $ACTION = "flush" ]; then
+    echo "Flushing..."
     flush
 
 fi
