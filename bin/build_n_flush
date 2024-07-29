@@ -21,7 +21,16 @@ flush() {
 }
 
 
-build
-sleep 1
-flush
+$ACTION=$1
+if [ -z $ACTION ]; then
+    build
+    sleep 1
+    flush
 
+elif [ $ACTION = "build" ]; then
+    build
+
+elif [ $ACTION = "flush" ]; then
+    flush
+
+fi
