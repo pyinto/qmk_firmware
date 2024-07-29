@@ -1,15 +1,5 @@
 #include QMK_KEYBOARD_H
 
-
-// Custom Keys:
-enum custom_keycodes {
-    KC_QWERTY = SAFE_RANGE,
-    KC_LOWER,
-    KC_RAISE,
-    KC_ADJUST,
-};
-
-
 // Left-hand home row mods
 #define HOME_A LCTL_T(KC_A)
 #define HOME_S LALT_T(KC_S)
@@ -37,6 +27,65 @@ enum corn_layers {
     _RAISE,
     _ADJUST,
 };
+
+
+enum custom_keycodes {
+    // layers
+    KC_QWERTY = SAFE_RANGE,
+    KC_LOWER,
+    KC_RAISE,
+    KC_ADJUST,
+
+    // other
+    MY_COLON,
+
+};
+
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        // layers
+        case KC_QWERTY:
+            if (record->event.pressed) {
+                set_single_persistent_default_layer(_QWERTY);
+            }
+            return false;
+        case KC_LOWER:
+            if (record->event.pressed) {
+                layer_on(_LOWER);
+                update_tri_layer(_LOWER, _RAISE, _ADJUST);
+            } else {
+                layer_off(_LOWER);
+                update_tri_layer(_LOWER, _RAISE, _ADJUST);
+            }
+            return false;
+        case KC_RAISE:
+            if (record->event.pressed) {
+                layer_on(_RAISE);
+                update_tri_layer(_LOWER, _RAISE, _ADJUST);
+            } else {
+                layer_off(_RAISE);
+                update_tri_layer(_LOWER, _RAISE, _ADJUST);
+            }
+            return false;
+        case KC_ADJUST:
+            if (record->event.pressed) {
+                layer_on(_ADJUST);
+            } else {
+                layer_off(_ADJUST);
+            }
+            return false;
+
+        // other
+        case MY_COLON:
+            if (record->event.pressed) {
+                SEND_STRING(":");
+            }
+            return false;
+    }
+    return true;
+}
+
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -75,7 +124,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // ⎟---------+---------+---------+---------+---------+---------⎟ ⎟---------+---------+---------+---------+---------+---------⎟
          _______ , KC_LCTL , KC_LALT , KC_LGUI , KC_LSFT ,  KC_GRV ,   KC_LEFT , KC_DOWN ,   KC_UP , KC_RGHT , KC_UNDS , _______ ,
     // ⎟---------+---------+---------+---------+---------+---------⎟ ⎟---------+---------+---------+---------+---------+---------⎟
-         _______ , KC_PIPE , KC_AMPR , _______ , KC_HASH , _______ ,   KC_LABK , KC_LPRN , KC_RPRN , KC_RABK , _______ , _______ ,
+         _______ , KC_PIPE , KC_AMPR , MY_COLON, KC_HASH , _______ ,   KC_LABK , KC_LPRN , KC_RPRN , KC_RABK , _______ , _______ ,
     // ╰---------+---------+---------+---------/---------/---------/ \---------\---------\---------+---------+---------+---------╯
                                        _______ , _______ , _______ ,   _______ , XXXXXXX , _______
     //                              /_________/_________/_________/   \_________\_________\_________\_
@@ -98,40 +147,3 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   )
 
 };
-
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case KC_QWERTY:
-            if (record->event.pressed) {
-                set_single_persistent_default_layer(_QWERTY);
-            }
-            return false;
-        case KC_LOWER:
-            if (record->event.pressed) {
-                layer_on(_LOWER);
-                update_tri_layer(_LOWER, _RAISE, _ADJUST);
-            } else {
-                layer_off(_LOWER);
-                update_tri_layer(_LOWER, _RAISE, _ADJUST);
-            }
-            return false;
-        case KC_RAISE:
-            if (record->event.pressed) {
-                layer_on(_RAISE);
-                update_tri_layer(_LOWER, _RAISE, _ADJUST);
-            } else {
-                layer_off(_RAISE);
-                update_tri_layer(_LOWER, _RAISE, _ADJUST);
-            }
-            return false;
-        case KC_ADJUST:
-            if (record->event.pressed) {
-                layer_on(_ADJUST);
-            } else {
-                layer_off(_ADJUST);
-            }
-            return false;
-    }
-    return true;
-}
