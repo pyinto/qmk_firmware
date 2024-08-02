@@ -40,12 +40,14 @@ enum custom_keycodes {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+
         // layers
         case KC_QWERTY:
             if (record->event.pressed) {
                 set_single_persistent_default_layer(_QWERTY);
             }
             return false;
+
         case KC_LOWER:
             if (record->event.pressed) {
                 layer_on(_LOWER);
@@ -55,6 +57,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 update_tri_layer(_LOWER, _RAISE, _ADJUST);
             }
             return false;
+
         case KC_RAISE:
             if (record->event.pressed) {
                 layer_on(_RAISE);
@@ -64,6 +67,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 update_tri_layer(_LOWER, _RAISE, _ADJUST);
             }
             return false;
+
         case KC_ADJUST:
             if (record->event.pressed) {
                 layer_on(_ADJUST);
