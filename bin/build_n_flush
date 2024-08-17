@@ -6,7 +6,6 @@ KEYBOARD_MOUNT_PATH="/Volumes/RPI-RP2/"
 
 
 MY_KEYBOARD="splitkb/aurora/corne/rev1"
-#MY_KEYMAP="pyinto_homerow_debug"
 MY_KEYMAP="homerow_v2"
 
 BUILD_NAME="${MY_KEYBOARD//\//_}_${MY_KEYMAP//\//_}_liatris.uf2"
